@@ -55,6 +55,7 @@ const TopSellingProduct = ( props ) => {
                                     <tr>
                                         <th>{getFormattedMessage( 'dashboard.stockAlert.product.label' )}</th>
                                         <th>{getFormattedMessage( 'dashboard.stockAlert.quantity.label' )}</th>
+                                        <th>{getFormattedMessage( 'unit.modal.input.base-unit.label' )}</th>
                                         <th>{getFormattedMessage( 'dashboard.grantTotal.label' )}</th>
                                     </tr>
                                 </thead>
@@ -69,7 +70,10 @@ const TopSellingProduct = ( props ) => {
                                             <tr key={index}>
                                                 <td className='py-4'>{top.name}</td>
                                                 <td className='py-4'><span
-                                                    className="badge bg-light-primary me-2">{top.total_quantity} {top.sale_unit}</span>
+                                                    className="badge bg-light-primary me-2">{top.total_quantity}</span>
+                                                </td>
+                                                <td className='py-4'><span
+                                                    className="badge bg-light-primary me-2">{top.product_unit_name} - {top.sale_unit}</span>
                                                 </td>
 
                                                 <td className='py-4'>

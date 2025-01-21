@@ -29,6 +29,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property float|null $paid_amount
  * @property int|null $payment_type
  * @property string|null $note
+ * @property object|null $user
  * @property string|null $reference_code
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -207,6 +208,7 @@ class Sale extends BaseModel implements HasMedia, JsonResourceful
             'customer_id' => $this->customer_id,
             'customer_name' => $this->customer->name,
             'warehouse_id' => $this->warehouse_id,
+            'user' => $this->user->first_name,
             'warehouse_name' => $this->warehouse->name,
             'tax_rate' => $this->tax_rate,
             'tax_amount' => $this->tax_amount,
@@ -279,5 +281,13 @@ class Sale extends BaseModel implements HasMedia, JsonResourceful
         }
 
         return $dueAmount;
+    }
+
+    /**
+     * Get the user that owns the POSRegister
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

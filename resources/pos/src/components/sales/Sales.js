@@ -112,6 +112,7 @@ const Sales = (props) => {
             reference_code: sale.attributes.reference_code,
             customer_name: sale.attributes.customer_name,
             warehouse_name: sale.attributes.warehouse_name,
+            user: sale.attributes.user,
             status: sale.attributes.status,
             payment_status: sale.attributes.payment_status,
             payment_type: sale.attributes.payment_type,
@@ -149,13 +150,14 @@ const Sales = (props) => {
                 time: "",
                 reference_code: "Total",
                 customer_name: "",
+                user: "",
                 warehouse_name: "",
                 status: "",
                 payment_status: "",
                 payment_type: "",
                 grand_total: grandTotalSum(itemsValue),
                 paid_amount: paidTotalSum(itemsValue),
-                id: "",
+                id: 0,
                 currency: currencySymbol,
             };
             const newItemValue =
@@ -185,9 +187,33 @@ const Sales = (props) => {
             },
         },
         {
+            name: getFormattedMessage(
+                "globally.react-table.column.created-date.label"
+            ),
+            selector: (row) => row.date,
+            sortField: "date",
+            sortable: true,
+            cell: (row) => {
+                return (
+                    row.date && (
+                        <span className="badge bg-light-info">
+                            <div className="mb-1">{row.time}</div>
+                            <div>{row.date}</div>
+                        </span>
+                    )
+                );
+            },
+        },
+        {
             name: getFormattedMessage("customer.title"),
             selector: (row) => row.customer_name,
             sortField: "customer_name",
+            sortable: false,
+        },
+        {
+            name: getFormattedMessage("users.table.user.column.title"),
+            selector: (row) => row.user,
+            sortField: "user",
             sortable: false,
         },
         {
@@ -357,24 +383,6 @@ const Sales = (props) => {
                             </span>
                         </span>
                     ))
-                );
-            },
-        },
-        {
-            name: getFormattedMessage(
-                "globally.react-table.column.created-date.label"
-            ),
-            selector: (row) => row.date,
-            sortField: "date",
-            sortable: true,
-            cell: (row) => {
-                return (
-                    row.date && (
-                        <span className="badge bg-light-info">
-                            <div className="mb-1">{row.time}</div>
-                            <div>{row.date}</div>
-                        </span>
-                    )
                 );
             },
         },

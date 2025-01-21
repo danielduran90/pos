@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title> Sale return report pdf</title>
+    <title> Sale return report</title>
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon.ico') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->

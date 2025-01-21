@@ -16,8 +16,8 @@ class SettingTableSeeder extends Seeder
     public function run(): void
     {
         Customer::Create([
-            'name' => 'walk-in-customer',
-            'email' => 'customer@infypos.com',
+            'name' => 'N/A',
+            'email' => 'customer@durangu.com',
             'phone' => '123456789',
             'country' => 'india',
             'city' => 'mumbai',
@@ -28,14 +28,14 @@ class SettingTableSeeder extends Seeder
             'phone' => '123456789',
             'country' => 'india',
             'city' => 'mumbai',
-            'email' => 'warehouse1@infypos.com',
+            'email' => 'warehouse1@durangu.com',
             'zip_code' => '12345',
         ]);
 
         Currency::create([
-            'name' => 'India',
-            'code' => 'INR',
-            'symbol' => '₹',
+            'name' => 'Peso Colombiano',
+            'code' => 'COP',
+            'symbol' => 'COP',
         ]);
         $logoUrl = ('images/infycare-logo.png');
 
@@ -44,11 +44,11 @@ class SettingTableSeeder extends Seeder
         }
 
         if (! keyExist('email')) {
-            Setting::create(['key' => 'email', 'value' => 'support@infypos.com']);
+            Setting::create(['key' => 'email', 'value' => 'support@durangu.com']);
         }
 
         if (! keyExist('company_name')) {
-            Setting::create(['key' => 'company_name', 'value' => 'infy-pos']);
+            Setting::create(['key' => 'company_name', 'value' => 'Durangu']);
         }
 
         if (! keyExist('phone')) {
@@ -56,12 +56,12 @@ class SettingTableSeeder extends Seeder
         }
 
         if (! keyExist('developed')) {
-            Setting::create(['key' => 'developed', 'value' => 'infyom']);
+            Setting::create(['key' => 'developed', 'value' => 'Durangu']);
         }
 
         if (! keyExist('footer')) {
             Setting::create([
-                'key' => 'footer', 'value' => '2022 Developed by Infy-pos All rights reserved - v1.1.0',
+                'key' => 'footer', 'value' => '2022 Developed by Durangu All rights reserved - v1.1.0',
             ]);
         }
 
@@ -79,7 +79,7 @@ class SettingTableSeeder extends Seeder
 
         if (! keyExist('address')) {
             Setting::create([
-                'key' => 'address', 'value' => 'C-303, Atlanta Shopping Mall, Nr. Sudama Chowk, Mota Varachha, Surat, Gujarat, India.',
+                'key' => 'address', 'value' => 'Calle 15 #5-50 Ospina Perez.',
             ]);
         }
 

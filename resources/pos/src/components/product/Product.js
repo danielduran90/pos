@@ -70,7 +70,7 @@ const Product = ( props ) => {
             time: moment( product?.attributes.created_at ).format( 'LT' ),
             brand_name: product?.attributes.brand_name,
             product_price: product?.attributes.product_price,
-            product_unit: product?.attributes.product_unit_name?.name ? product?.attributes.product_unit_name?.name : 'N/A',
+            product_unit: product?.attributes.product_unit_name?.name ? product?.attributes.product_unit_name?.name+" - "+product?.attributes.sale_unit_name?.short_name : 'N/A',
             in_stock: product?.attributes.in_stock,
             images: product?.attributes.images,
             id: product.id,

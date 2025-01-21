@@ -1,5 +1,4 @@
 import React from 'react'
-import Calculator from "awesome-react-calculator";
 import { CloseButton } from 'react-bootstrap-v5';
 
 // const PosCalculator = () => {

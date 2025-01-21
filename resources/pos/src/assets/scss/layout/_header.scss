@@ -70,12 +70,6 @@
         color: $gray-600;
     }
 
-    .dropdown-toggle {
-        @media (max-width: 480px) {
-            font-size: 0;
-        }
-    }
-
     .top-navbar {
         @media (max-width: 1199px) {
             transition: width, left, right, .3s;

@@ -386,10 +386,6 @@ export default [
                 ),
                 to: "/app/report/report-product-quantity",
             },
-            // {
-            //     title: "Supplier Report",
-            //     to: '/app/report/suppliers',
-            // },
             {
                 title: getFormattedMessage("supplier.report.title"),
                 to: "/app/report/suppliers",
@@ -408,11 +404,6 @@ export default [
                 to: "/app/report/customers",
                 detail: "/app/report/customers/details",
             },
-            // {
-            //     title: getFormattedMessage( "customer.report.title" ),
-            //     to: '/app/report/customers',
-            //     detail: '/app/report/customers/details'
-            // },
             {
                 title: getFormattedMessage("register.report.title"),
                 to: "/app/report/register",

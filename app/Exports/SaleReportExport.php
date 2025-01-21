@@ -10,10 +10,10 @@ class SaleReportExport implements FromView
     public function view(): \Illuminate\Contracts\View\View
     {
         $startDate = request()->get('start_date');
-        $endDate = request()->get('start_date');
+        $endDate = request()->get('end_date');
         if ($startDate != 'null' && $endDate != 'null' && $startDate && $endDate) {
-            $sales = Sale::with(['saleItems', 'warehouse', 'customer', 'payments'])->whereDate('created_at', '>=',
-                $startDate)
+            $sales = Sale::with(['saleItems', 'warehouse', 'customer', 'payments'])
+                ->whereDate('created_at', '>=', $startDate)
                 ->whereDate('created_at', '<=', $endDate)
                 ->get();
         } else {

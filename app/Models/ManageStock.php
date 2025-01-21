@@ -104,6 +104,7 @@ class ManageStock extends BaseModel implements JsonResourceful
         return [
             'warehouse_id' => $this->warehouse_id,
             'product_id' => $this->product_id,
+            'product_unit' => $this->product->getSaleUnitName()['short_name'],
             'product_unit_name' => $this->getProductUnitName(),
             'quantity' => $this->quantity,
             'product' => $this->product,

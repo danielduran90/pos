@@ -143,7 +143,7 @@ const Product = (props) => {
                             >
                                 {product.attributes.stock &&
                                     product.attributes.stock.quantity}{" "}
-                                {product?.attributes?.product_unit_name?.name}
+                                 {getFormattedMessage("units.title")}
                             </Badge>
                         </p>
                         <p className="m-0 item-badge">

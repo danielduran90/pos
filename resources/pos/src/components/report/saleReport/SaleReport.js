@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import MasterLayout from '../../MasterLayout';
 import TabTitle from '../../../shared/tab-title/TabTitle';
-import { currencySymbolHendling, getFormattedMessage, placeholderText } from '../../../shared/sharedMethod';
+import { currencySymbolHendling, getFormattedMessage, placeholderText, getFormattedDate } from '../../../shared/sharedMethod';
 import ReactDataTable from '../../../shared/table/ReactDataTable';
 import { fetchFrontSetting } from '../../../store/action/frontSettingAction';
 import { fetchSales } from '../../../store/action/salesAction';
@@ -34,6 +35,12 @@ const SaleReport = ( props ) => {
     }, [ isWarehouseValue ] )
 
     const itemsValue = currencySymbol && sales.length >= 0 && sales.map( sale => ( {
+        date: getFormattedDate(
+            sale.attributes.date,
+            allConfigData && allConfigData
+        ),
+        time: moment(sale.attributes.created_at).format('LT'),
+        user: sale.attributes.user,
         reference_code: sale.attributes.reference_code,
         customer_name: sale.attributes.customer_name,
         warehouse_name: sale.attributes.warehouse_name,
@@ -57,9 +64,33 @@ const SaleReport = ( props ) => {
             }
         },
         {
+            name: getFormattedMessage(
+                "globally.react-table.column.created-date.label"
+            ),
+            selector: (row) => row.date,
+            sortField: "date",
+            sortable: true,
+            cell: (row) => {
+                return (
+                    row.date && (
+                        <span className="badge bg-light-info">
+                            <div className="mb-1">{row.time}</div>
+                            <div>{row.date}</div>
+                        </span>
+                    )
+                );
+            },
+        },
+        {
             name: getFormattedMessage( 'customer.title' ),
             selector: row => row.customer_name,
             sortField: 'customer_name',
+            sortable: false,
+        },
+        {
+            name: getFormattedMessage("users.table.user.column.title"),
+            selector: (row) => row.user,
+            sortField: "user",
             sortable: false,
         },
         {

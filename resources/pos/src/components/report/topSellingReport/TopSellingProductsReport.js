@@ -68,16 +68,13 @@ useEffect(() => {
         },
         {
             name: getFormattedMessage('dashboard.stockAlert.quantity.label'),
-            selector: row => row.quantity + ' ' + row.sale_unit,
+            selector: row => row.quantity,
             sortField: 'quantity',
             sortable: false,
             cell: row => {
                 return <div>
                     <span className='badge bg-light-danger me-2'>
                             <span>{row.quantity}</span>
-                    </span>
-                    <span className='badge bg-light-primary me-2'>
-                        <span>{row.sale_unit}</span>
                     </span>
                 </div>
             }

@@ -119,7 +119,7 @@ const Product = ( props ) => {
                 paid_amount: paidTotalSum( itemsValue ),
                 paid: 0,
                 due: 0,
-                id: "",
+                id: 0,
                 payment: '',
                 currency: currencySymbol
             }

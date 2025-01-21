@@ -17,7 +17,7 @@ const ActionButton = (props) => {
                     <FontAwesomeIcon icon={faEye}/>
                 </button> : null
             }
-            {item.name === 'admin' || item.email === 'admin@infy-pos.com' || isEditMode === false ? null :
+            {item.name === 'Admin' || item.email === 'admin@Durangu.com' || isEditMode === false ? null :
                 <button title={placeholderText('globally.edit.tooltip.label')}
                         className='btn text-primary fs-3 border-0 px-xxl-2 px-1'
                         onClick={(e) => {
@@ -28,7 +28,7 @@ const ActionButton = (props) => {
                     <FontAwesomeIcon icon={faPenToSquare}/>
                 </button>
             }
-            {item.name === 'admin' || item.email === 'admin@infy-pos.com' || isDeleteMode === false ? null :
+            {item.name === 'Admin' || item.email === 'admin@Durangu.com' || isDeleteMode === false ? null :
                 <button title={placeholderText('globally.delete.tooltip.label')}
                         className='btn px-2 pe-0 text-danger fs-3 border-0'
                         onClick={(e) => {

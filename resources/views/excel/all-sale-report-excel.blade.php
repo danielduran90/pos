@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title> Sale report pdf</title>
+    <title> Sale report</title>
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon.ico') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
@@ -14,7 +14,9 @@
     <thead>
     <tr style="background-color: dodgerblue;">
         <th style="width: 200%">{{ __('messages.pdf.reference') }}</th>
+        <th style="width: 200%">{{ __('messages.pdf.date') }}</th>
         <th style="width: 300%">{{ __('messages.pdf.customer') }}</th>
+        <th style="width: 200%">{{ __('messages.pdf.user') }}</th>
         <th style="width: 200%">{{ __('messages.pdf.warehouse') }}</th>
         <th style="width: 200%">{{ __('messages.pdf.status') }}</th>
         <th style="width: 200%">{{ __('messages.pdf.total') }}</th>
@@ -26,23 +28,25 @@
     @foreach($sales  as $sale)
         <tr align="center">
             <td>{{$sale->reference_code}}</td>
+            <td>{{$sale->date->format('d-m-Y')}}</td>
             <td>{{$sale->customer->name}}</td>
+            <td>{{$sale->user->first_name}}</td>
             <td>{{$sale->warehouse->name}}</td>
             @if($sale->status == \App\Models\Sale::COMPLETED)
-                <td>Completed</td>
+                <td>{{ __('messages.pdf.completed') }}</td>
             @elseif($sale->status == \App\Models\Sale::PENDING)
-                <td>Pending</td>
+                <td>{{ __('messages.pdf.pending') }}</td>
             @elseif($sale->status == \App\Models\Sale::ORDERED)
-                <td>Ordered</td>
+                <td>{{ __('messages.pdf.ordered') }}</td>
             @endif
             <td style="float: left">{{number_format($sale->grand_total,2)}}</td>
             <td>{{number_format((float)$sale->payments->sum('amount'), 2)}}</td>
-            @if($sale->status == \App\Models\Sale::PAID)
-                <td>paid</td>
-            @elseif($sale->status == \App\Models\Sale::UNPAID)
-                <td>unpaid</td>
-            @elseif($sale->status == \App\Models\Sale::PARTIAL_PAID)
-                <td>partial</td>
+            @if($sale->payment_status == \App\Models\Sale::PAID)
+                <td>{{ __('messages.pdf.paid') }}</td>
+            @elseif($sale->payment_status == \App\Models\Sale::UNPAID)
+                <td>{{ __('messages.pdf.unpaid') }}</td>
+            @elseif($sale->payment_status == \App\Models\Sale::PARTIAL_PAID)
+                <td>{{ __('messages.pdf.partial_paid') }}</td>
             @endif
             <td></td>
         </tr>

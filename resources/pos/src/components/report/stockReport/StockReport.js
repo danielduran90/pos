@@ -54,7 +54,8 @@ const StockReport = ( props ) => {
         product_category_name: stockReport.attributes.product_category_name,
         product_cost: stockReport.attributes.product.product_cost,
         product_price: stockReport.attributes.product.product_price,
-        product_unit: stockReport.attributes.product_unit_name,
+        product_unit_name: stockReport.attributes.product_unit_name,
+        product_unit: stockReport.attributes.product_unit,
         current_stock: stockReport.attributes.quantity,
         id: stockReport.attributes.product_id,
         currency: currencySymbol
@@ -121,9 +122,18 @@ const StockReport = ( props ) => {
                     <div className='badge bg-light-info me-2'>
                         <span>{row.current_stock}</span>
                     </div>
-
-                    <span className='badge bg-light-success me-2'>
-                        <span>{row.product_unit}</span>
+                </div>
+            }
+        },
+        {
+            name: getFormattedMessage('unit.modal.input.base-unit.label'),
+            selector: row => row.product_unit,
+            sortField: 'unit',
+            sortable: false,
+            cell: row => {
+                return <div>
+                    <span className='badge bg-light-primary me-2'>
+                        <span>{row.product_unit_name} - {row.product_unit}</span>
                     </span>
                 </div>
             }

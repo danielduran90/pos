@@ -434,7 +434,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `dob`, `country`, `city`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'walk-in-customer', 'customer@infypos.com', '123456789', NULL, 'india', 'mumbai', 'Dr Deshmukh Marg , mumbai', '2023-11-03 23:52:46', '2023-11-03 23:52:46');
+(1, 'N/A', 'customer@durangu.com', '123456789', NULL, 'india', 'mumbai', 'Dr Deshmukh Marg , mumbai', '2023-11-03 23:52:46', '2023-11-03 23:52:46');
 
 -- --------------------------------------------------------
 
@@ -1081,7 +1081,7 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', ' Admin', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45');
+(1, 'Admin', ' Admin', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45');
 
 -- --------------------------------------------------------
 
@@ -1283,11 +1283,11 @@ INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 (11, 'expense_code', 'EX', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
 (12, 'is_currency_right', '0', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
 (13, 'currency', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(14, 'email', 'support@infypos.com', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(15, 'company_name', 'infy-pos', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
+(14, 'email', 'support@durangu.com', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
+(15, 'company_name', 'Durangu', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
 (16, 'phone', '1234567890', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
 (17, 'developed', 'infyom', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(18, 'footer', '2022 Developed by Infy-pos All rights reserved - v1.1.0', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
+(18, 'footer', '2024 Developed by Durangu All rights reserved - v1.1.0', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
 (19, 'default_language', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
 (20, 'default_customer', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
 (21, 'default_warehouse', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
@@ -5589,7 +5589,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`, `language`) VALUES
-(1, 'admin', NULL, 'admin@infy-pos.com', NULL, '2023-11-03 23:52:45', '$2y$10$7wFp3nL4Uml7s8OIEfYQjOcxfsr7fJe2Rzl9cwg6X8EI1C3e/MbCG', NULL, '2023-11-03 23:52:45', '2023-11-03 23:52:45', 1, 'en');
+(1, 'Admin', NULL, 'admin@Durangu.com', NULL, '2023-11-03 23:52:45', '$2y$10$7wFp3nL4Uml7s8OIEfYQjOcxfsr7fJe2Rzl9cwg6X8EI1C3e/MbCG', NULL, '2023-11-03 23:52:45', '2023-11-03 23:52:45', 1, 'en');
 
 -- --------------------------------------------------------
 
@@ -5614,7 +5614,7 @@ CREATE TABLE `warehouses` (
 --
 
 INSERT INTO `warehouses` (`id`, `name`, `phone`, `country`, `city`, `email`, `zip_code`, `created_at`, `updated_at`) VALUES
-(1, 'warehouse', '123456789', 'india', 'mumbai', 'warehouse1@infypos.com', '12345', '2023-11-03 23:52:46', '2023-11-03 23:52:46');
+(1, 'warehouse', '123456789', 'india', 'mumbai', 'warehouse1@durangu.com', '12345', '2023-11-03 23:52:46', '2023-11-03 23:52:46');
 
 --
 -- Indexes for dumped tables

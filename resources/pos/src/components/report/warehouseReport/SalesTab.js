@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import moment from 'moment';
 import {connect} from 'react-redux';
 import ReactDataTable from '../../../shared/table/ReactDataTable';
-import {currencySymbolHendling, getFormattedMessage} from '../../../shared/sharedMethod';
+import {currencySymbolHendling, getFormattedMessage, getFormattedDate} from '../../../shared/sharedMethod';
 import {fetchSales} from '../../../store/action/salesAction';
 import {fetchFrontSetting} from '../../../store/action/frontSettingAction';
 import {saleExcelAction} from '../../../store/action/salesExcelAction';
@@ -26,6 +26,11 @@ const SalesTab = (props) => {
     }, [warehouseValue]);
 
     const itemsValue = currencySymbol && sales.length >= 0 && sales.map(sale => ({
+        date: getFormattedDate(
+            sale.attributes.date,
+            allConfigData && allConfigData
+        ),
+        user: sale.attributes.user,
         time: moment(sale.attributes.created_at).format('LT'),
         reference_code: sale.attributes.reference_code,
         customer_name: sale.attributes.customer_name,
@@ -56,9 +61,33 @@ const SalesTab = (props) => {
             }
         },
         {
+            name: getFormattedMessage(
+                "globally.react-table.column.created-date.label"
+            ),
+            selector: (row) => row.date,
+            sortField: "date",
+            sortable: true,
+            cell: (row) => {
+                return (
+                    row.date && (
+                        <span className="badge bg-light-info">
+                            <div className="mb-1">{row.time}</div>
+                            <div>{row.date}</div>
+                        </span>
+                    )
+                );
+            },
+        },
+        {
             name: getFormattedMessage('customer.title'),
             selector: row => row.customer_name,
             sortField: 'customer_name',
+            sortable: false,
+        },
+        {
+            name: getFormattedMessage("users.table.user.column.title"),
+            selector: (row) => row.user,
+            sortField: "user",
             sortable: false,
         },
         {
@@ -99,12 +128,6 @@ const SalesTab = (props) => {
             selector: row => currencySymbolHendling(allConfigData, row.currency, row.paid_amount),
             sortField: 'paid_amount',
             sortable: true,
-        },
-        {
-            name: getFormattedMessage('dashboard.recentSales.due.label'),
-            selector: row => currencySymbolHendling(allConfigData, row.currency, '0.00'),
-            sortField: 'due',
-            // sortable: true,
         },
         {
             name: getFormattedMessage('dashboard.recentSales.paymentStatus.label'),

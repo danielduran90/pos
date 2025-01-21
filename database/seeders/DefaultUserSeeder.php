@@ -16,10 +16,10 @@ class DefaultUserSeeder extends Seeder
     public function run(): void
     {
         $input = [
-            'first_name' => 'admin',
-            'email' => 'admin@infy-pos.com',
+            'first_name' => 'Admin',
+            'email' => 'admin@Durangu.com',
             'email_verified_at' => Carbon::now(),
-            'password' => Hash::make('123456'),
+            'password' => Hash::make('Werty1231*'),
         ];
         $user = User::create($input);
         /** @var Role $adminRole */

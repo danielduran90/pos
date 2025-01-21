@@ -302,6 +302,7 @@ class Product extends BaseModel implements HasMedia, JsonResourceful
             'total_quantity' => $this->total_quantity,
             'grand_total' => $this->grand_total,
             'sale_unit' => isset($this->getSaleUnitName()['short_name']) ? $this->getSaleUnitName()['short_name'] : null,
+            'product_unit_name' => $this->getProductUnitName()['name'],
             'image' => $this->image_url,
         ];
     }
@@ -330,6 +331,7 @@ class Product extends BaseModel implements HasMedia, JsonResourceful
             'grand_total' => $this->grand_total,
             'code' => $this->code,
             'sale_unit' => isset($this->getSaleUnitName()['short_name']) ? $this->getSaleUnitName()['short_name'] : null,
+            'product_unit_name' => $this->getProductUnitName()['name']
         ];
     }
 

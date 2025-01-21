@@ -51,9 +51,6 @@
   border-top-color: #eeeeee;
 }
 
-.top-nav {
-  height: 6.93vh !important;
-}
 .top-nav .grp-select .select-box {
   height: 100% !important;
 }
@@ -148,9 +145,6 @@
   padding-right: 83px !important;
 }
 
-.left-content {
-  height: 88.95vh !important;
-}
 .left-content .main-table {
   height: auto;
   min-height: calc(100vh - 354px);
@@ -420,16 +414,6 @@
   white-space: nowrap;
   font-weight: 400;
 }
-.right-content .product-list-block .product-custom-card .item-badges {
-  position: absolute;
-  top: -3px;
-  right: 0;
-}
-.right-content .product-list-block .product-custom-card .item-badge {
-  position: absolute;
-  top: -3px;
-  left: 0;
-}
 .right-content .product-list-block .product-active {
   outline: #6571FF solid 1px !important;
 }
@@ -586,7 +570,7 @@
 
 @media (max-width: 576px) {
   .css-14el2xx-placeholder,
-.css-1jqq78o-placeholder {
+  .css-1jqq78o-placeholder {
     font-size: 14px !important;
   }
 }
@@ -845,11 +829,13 @@
     height: initial !important;
     overflow: initial !important;
     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   body {
     height: initial !important;
     overflow: initial !important;
     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .page-break {
     margin-top: 1rem;
@@ -890,14 +876,14 @@
 
 @media (max-width: 767px) {
   .pos-left-scs,
-.pos-right-scs {
+  .pos-right-scs {
     width: 100%;
   }
 }
 
 @media (max-width: 640px) {
   .search-bar,
-.pos-header-btn {
+  .pos-header-btn {
     width: 100%;
   }
 }

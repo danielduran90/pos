@@ -12,6 +12,7 @@ use App\Models\Hold;
 use App\Models\Sale;
 use App\Models\Setting;
 use App\Models\Warehouse;
+use App\Models\User;
 use App\Repositories\SaleRepository;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
@@ -42,9 +43,10 @@ class SaleAPIController extends AppBaseController
         $search = $request->filter['search'] ?? '';
         $customer = (Customer::where('name', 'LIKE', "%$search%")->get()->count() != 0);
         $warehouse = (Warehouse::where('name', 'LIKE', "%$search%")->get()->count() != 0);
+        $user = (User::where('first_name', 'LIKE', "%$search%")->get()->count() != 0);
 
         $sales = $this->saleRepository;
-        if ($customer || $warehouse) {
+        if ($customer || $warehouse || $user) {
             $sales->whereHas('customer', function (Builder $q) use ($search, $customer) {
                 if ($customer) {
                     $q->where('name', 'LIKE', "%$search%");
@@ -52,6 +54,10 @@ class SaleAPIController extends AppBaseController
             })->whereHas('warehouse', function (Builder $q) use ($search, $warehouse) {
                 if ($warehouse) {
                     $q->where('name', 'LIKE', "%$search%");
+                }
+            })->whereHas('user', function (Builder $q) use ($search, $user) {
+                if ($user) {
+                    $q->where('first_name', 'LIKE', "%$search%");
                 }
             });
         }

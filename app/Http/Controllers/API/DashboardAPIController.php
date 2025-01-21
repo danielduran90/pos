@@ -26,7 +26,6 @@ class DashboardAPIController extends AppBaseController
     {
         $data = [];
         $today = Carbon::today();
-
         $data['today_sales'] = (float) Sale::where('date', $today)->sum('grand_total');
         $data['today_purchases'] = (float) Purchase::where('date', $today)->sum('grand_total');
         $data['today_sale_return'] = (float) SaleReturn::where('date', $today)->sum('grand_total');
